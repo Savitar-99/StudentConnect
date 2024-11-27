@@ -5,6 +5,7 @@ import Home from './pages/Home';
 import Login from './pages/Login';
 import Dashboard from './pages/Dashboard';
 import ProtectedRoute from './components/ProtectedRoute';
+import Footer from './components/Footer'; // Asegúrate de que la ruta sea correcta
 
 const App: React.FC = () => {
   return (
@@ -22,6 +23,9 @@ const App: React.FC = () => {
           }
         />
       </Routes>
+
+      {/* Añadir el Footer */}
+      <Footer />
     </Router>
   );
 };

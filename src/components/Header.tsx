@@ -1,6 +1,7 @@
 import React from 'react';
 import { Link, useNavigate } from 'react-router-dom';
 import './Header.css';
+import logo from '../assets/logodefault.png'; // Ruta correcta de la imagen
 
 const Header: React.FC = () => {
   const navigate = useNavigate(); // Hook para redirección
@@ -17,8 +18,10 @@ const Header: React.FC = () => {
   return (
     <nav className="navbar navbar-expand-lg navbar-light bg-danger">
       <div className="container">
+        {/* Logo de la web en pequeñito */}
         <Link className="navbar-brand text-white" to="/">
-          <i className="bi bi-atom"></i> StudentConnect
+        <img src="/logodefault.png" alt="Logo" className="navbar-logo" />
+          StudentConnect
         </Link>
         <div className="d-flex">
           {!isAuthenticated ? (

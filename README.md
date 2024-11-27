@@ -44,3 +44,30 @@ You don’t have to ever use `eject`. The curated feature set is suitable for sm
 You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
 
 To learn React, check out the [React documentation](https://reactjs.org/).
+
+
+# **StudentConnect - Base de Datos**
+
+Este proyecto utiliza **JSON Server** para simular una API REST con una base de datos local. Aquí encontrarás las instrucciones para configurar y ejecutar el servidor de la base de datos.
+
+---
+
+## **Requisitos Previos**
+
+1. **Node.js** instalado en tu sistema.
+   - Puedes descargarlo desde [Node.js](https://nodejs.org/).
+
+2. **JSON Server** instalado globalmente o en el proyecto:
+   - Instalación global:
+     ```bash
+     npm install -g json-server
+     ```
+   - Instalación en el proyecto:
+     ```bash
+     npm install json-server
+     ```
+
+---
+
+## **Abrir la base de datos en otro terminal**
+json-server --watch db.json --port 5000

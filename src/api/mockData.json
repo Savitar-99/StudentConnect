@@ -1,0 +1,10 @@
+{
+  "users": [
+    { "id": 1, "name": "Alice", "email": "alice@example.com", "password": "1234", "role": "teacher" },
+    { "id": 2, "name": "Bob", "email": "bob@example.com", "password": "5678", "role": "student" }
+  ],
+  "students": [
+    { "id": 1, "name": "Charlie", "attendance": 90, "grades": [85, 90, 88], "history": ["Math", "Science"] },
+    { "id": 2, "name": "David", "attendance": 80, "grades": [78, 85, 82], "history": ["History", "Geography"] }
+  ]
+}

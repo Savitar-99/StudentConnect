@@ -1,32 +1,37 @@
-import React from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
-import Header from './components/Header';
-import Home from './pages/Home';
-import Login from './pages/Login';
-import Dashboard from './pages/Dashboard';
-import ProtectedRoute from './components/ProtectedRoute';
-import Footer from './components/Footer'; // Asegúrate de que la ruta sea correcta
+import React from "react";
+import { Routes, Route, Navigate } from "react-router-dom";
+import { useAuth } from "./context/AuthContext";
+import Login from "./pages/Login";
+import TeacherDashboard from "./pages/TeacherDashboard";
+import StudentDashboard from "./pages/StudentDashboard";
 
-const App: React.FC = () => {
+const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
+  const { user } = useAuth();
+  return user ? children : <Navigate to="/" />;
+};
+
+const App = () => {
   return (
-    <Router>
-      <Header />
-      <Routes>
-        <Route path="/" element={<Home />} />
-        <Route path="/login" element={<Login />} />
-        <Route
-          path="/dashboard"
-          element={
-            <ProtectedRoute>
-              <Dashboard />
-            </ProtectedRoute>
-          }
-        />
-      </Routes>
-
-      {/* Añadir el Footer */}
-      <Footer />
-    </Router>
+    <Routes>
+      <Route path="/" element={<Login />} />
+      <Route
+        path="/teacher"
+        element={
+          <ProtectedRoute>
+            <TeacherDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route
+        path="/student"
+        element={
+          <ProtectedRoute>
+            <StudentDashboard />
+          </ProtectedRoute>
+        }
+      />
+      <Route path="*" element={<Navigate to="/" />} />
+    </Routes>
   );
 };
 

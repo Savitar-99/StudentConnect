@@ -1,5 +1,6 @@
 import React from "react";
 import { Routes, Route, Navigate } from "react-router-dom";
+import { AuthProvider } from "./context/AuthContext";
 import { useAuth } from "./context/AuthContext";
 import Login from "./pages/Login";
 import TeacherDashboard from "./pages/TeacherDashboard";

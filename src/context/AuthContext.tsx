@@ -18,11 +18,11 @@ export const AuthProvider = ({ children }: { children: React.ReactNode }) => {
   const [user, setUser] = useState<User | null>(null);
 
   // Simular usuarios (esto se reemplaza con una API en el futuro)
-  const users: { email: string; password: string; role: "teacher" | "student" }[] = [
+  const users: ReadonlyArray<{ email: string; password: string; role: "teacher" | "student" }> = [
     { email: "teacher@example.com", password: "1234", role: "teacher" },
     { email: "student@example.com", password: "5678", role: "student" },
   ];
-  
+
   const login = (email: string, password: string): boolean => {
     const foundUser = users.find(
       (u) => u.email === email && u.password === password

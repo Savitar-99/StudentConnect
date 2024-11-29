@@ -1,8 +1,0 @@
-{
-    "students": [
-      { "id": 1, "name": "Alice", "attendance": 90, "grade": 85 },
-      { "id": 2, "name": "Bob", "attendance": 80, "grade": 75 },
-      { "id": 3, "name": "Charlie", "attendance": 95, "grade": 90 }
-    ]
-  }
-  

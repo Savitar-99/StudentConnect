@@ -15,7 +15,7 @@ const App = () => {
   return (
     <Routes>
       {/* Página de inicio temporal: Redirige directamente al StudentDashboard */}
-      <Route path="/" element={<StudentDashboard />} />
+      <Route path="/" element={<Login />} />
       
       {/* Rutas principales */}
       <Route path="/login" element={<Login />} />

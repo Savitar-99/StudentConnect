@@ -13,7 +13,11 @@ const ProtectedRoute = ({ children }: { children: JSX.Element }) => {
 const App = () => {
   return (
     <Routes>
-      <Route path="/" element={<Login />} />
+      {/* Página de inicio temporal: Redirige directamente al StudentDashboard */}
+      <Route path="/" element={<StudentDashboard />} />
+      
+      {/* Rutas principales */}
+      <Route path="/login" element={<Login />} />
       <Route
         path="/teacher"
         element={
@@ -30,6 +34,8 @@ const App = () => {
           </ProtectedRoute>
         }
       />
+
+      {/* Página por defecto */}
       <Route path="*" element={<Navigate to="/" />} />
     </Routes>
   );

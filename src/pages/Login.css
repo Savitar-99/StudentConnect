@@ -1,0 +1,29 @@
+@keyframes fadeInSlide {
+    from {
+        opacity: 0;
+        transform: translateX(-50%);
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0);
+    }
+}
+
+.fadeIn {
+    animation: fadeInSlide 1s ease-out;
+}
+
+/* Elimina el fondo blanco en los campos autocompletados */
+input:-webkit-autofill {
+    box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.8) inset !important;
+    -webkit-text-fill-color: #fff !important;
+}
+
+/* Estilo adicional para garantizar consistencia */
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+input:-webkit-autofill:active {
+    box-shadow: 0 0 0px 1000px rgba(0, 0, 0, 0.8) inset !important;
+    -webkit-text-fill-color: #fff !important;
+}

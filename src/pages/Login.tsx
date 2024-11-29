@@ -1,11 +1,17 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Container, TextField, Button, Typography, Box, Link } from '@mui/material';
-import backgroundVideo from '../assets/video.mp4'; // Asegúrate de que la ruta sea correcta
-import logo from '../assets/logo.png'; // Ruta del logo
+import backgroundVideo from '../assets/video.mp4';
+import logo from '../assets/logo.png';
+import './Login.css'; // Asegúrate de importar tu archivo CSS
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const [animationClass, setAnimationClass] = useState(''); // Controla la animación
+
+  useEffect(() => {
+    setAnimationClass('fadeIn'); // Activa la animación al cargar
+  }, []);
 
   const handleLogin = (e: React.FormEvent) => {
     e.preventDefault();
@@ -13,7 +19,7 @@ const Login: React.FC = () => {
   };
 
   return (
-    <Box sx={{ display: 'flex', height: '100vh', overflow: 'hidden' }}> {/* Desactivar el scroll */}
+    <Box sx={{ display: 'flex', height: '100vh', overflow: 'hidden' }}>
       {/* Video de fondo */}
       <Box
         sx={{
@@ -43,32 +49,35 @@ const Login: React.FC = () => {
         </video>
       </Box>
 
-      {/* Contenedor del formulario, alineado al lado izquierdo */}
+      {/* Contenedor del formulario */}
       <Container
         maxWidth="xs"
+        className={animationClass} // Añadimos la clase animada
         sx={{
           display: 'flex',
           flexDirection: 'column',
           justifyContent: 'start',
           alignItems: 'flex-start',
-          backgroundColor: 'rgba(0, 0, 0, 0.8)', // Fondo más oscuro
+          backgroundColor: 'rgba(0, 0, 0, 0.8)',
           padding: '20px',
           zIndex: 1,
           marginLeft: '100px',
           height: '100%',
-          borderLeft: '2px solid #F26F63', // Borde añadido
-          borderRight: '2px solid #F26F63', // Borde añadido
+          borderLeft: '2px solid #F26F63',
+          borderRight: '2px solid #F26F63',
         }}
       >
-        {/* Logo encima */}
-        <Box sx={{ textAlign: 'center', marginBottom: '1px' }}>
-          <img src={logo} alt="Logo" style={{ width: '300px', marginLeft: '50px', marginRight: '40' }} />
+        {/* Logo */}
+        <Box
+          className={animationClass} // Animación también para el logo
+          sx={{ textAlign: 'center', marginBottom: '1px' }}
+        >
+          <img src={logo} alt="Logo" style={{ width: '300px', marginLeft: '50px' }} />
         </Box>
         <Typography variant="h5" sx={{ color: '#fff', marginBottom: '20px', textAlign: 'left' }}>
           Iniciar Sesión
         </Typography>
         <form onSubmit={handleLogin}>
-          {/* Campo de Email */}
           <TextField
             label="Correo Electrónico"
             type="email"
@@ -79,24 +88,24 @@ const Login: React.FC = () => {
               marginBottom: '20px',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: '#F26F63',  // Color del borde
+                  borderColor: '#F26F63',
                 },
                 '&:hover fieldset': {
-                  borderColor: '#e74c3c',  // Color del borde al pasar el mouse
+                  borderColor: '#e74c3c',
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: '#FF5733',  // Color del borde cuando el campo está enfocado
+                  borderColor: '#FF5733',
                 },
               },
               '& input': {
-                color: '#fff',  // Color del texto dentro del input
+                color: '#fff',
               },
+              
             }}
             InputLabelProps={{
-              style: { color: '#fff' }, // Color de la etiqueta
+              style: { color: '#fff' },
             }}
           />
-          {/* Campo de Contraseña */}
           <TextField
             label="Contraseña"
             type="password"
@@ -107,24 +116,23 @@ const Login: React.FC = () => {
               marginBottom: '20px',
               '& .MuiOutlinedInput-root': {
                 '& fieldset': {
-                  borderColor: '#F26F63',  // Color del borde
+                  borderColor: '#F26F63',
                 },
                 '&:hover fieldset': {
-                  borderColor: '#e74c3c',  // Color del borde al pasar el mouse
+                  borderColor: '#e74c3c',
                 },
                 '&.Mui-focused fieldset': {
-                  borderColor: '#FF5733',  // Color del borde cuando el campo está enfocado
+                  borderColor: '#FF5733',
                 },
               },
               '& input': {
-                color: '#fff',  // Color del texto dentro del input
+                color: '#fff',
               },
             }}
             InputLabelProps={{
-              style: { color: '#fff' }, // Color de la etiqueta
+              style: { color: '#fff' },
             }}
           />
-          {/* Botón de Login */}
           <Button
             type="submit"
             variant="contained"
@@ -139,8 +147,6 @@ const Login: React.FC = () => {
             Entrar
           </Button>
         </form>
-
-        {/* Mensaje para registrarse o recuperar contraseña */}
         <Box sx={{ marginTop: '20px', color: '#fff' }}>
           <Typography variant="body2">
             ¿No tienes cuenta?{' '}

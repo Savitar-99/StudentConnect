@@ -14,10 +14,10 @@ public class AppController {
     @Autowired
     private AppService appService;
 
-    // Usuarios
+    // usuarios
     @GetMapping("/usuarios")
     public List<Usuario> getAllUsuarios() {
-        return appService.getAllUsuarios();
+        return appService.getUsuarios();
     }
 
     @PostMapping("/usuarios")
@@ -31,10 +31,10 @@ public class AppController {
         appService.updateUsuario(usuario);
     }
 
-    // Centros
+    // centros
     @GetMapping("/centros")
     public List<Centro> getAllCentros() {
-        return appService.getAllCentros();
+        return appService.getCentros();
     }
 
     @PostMapping("/centros")
@@ -48,10 +48,10 @@ public class AppController {
         appService.updateCentro(centro);
     }
 
-    // Asignaturas
+    // asignaturas
     @GetMapping("/asignaturas")
     public List<Asignatura> getAllAsignaturas() {
-        return appService.getAllAsignaturas();
+        return appService.getAsignaturas();
     }
 
     @PostMapping("/asignaturas")
@@ -65,10 +65,10 @@ public class AppController {
         appService.updateAsignatura(asignatura);
     }
 
-    // Asistencias
+    // asistencias
     @GetMapping("/asistencias")
     public List<Asistencia> getAllAsistencias() {
-        return appService.getAllAsistencias();
+        return appService.getAsistencias();
     }
 
     @PostMapping("/asistencias")
@@ -82,10 +82,10 @@ public class AppController {
         appService.updateAsistencia(asistencia);
     }
 
-    // Calificaciones
+    // calificaciones
     @GetMapping("/calificaciones")
     public List<Calificacion> getAllCalificaciones() {
-        return appService.getAllCalificaciones();
+        return appService.getCalificaciones();
     }
 
     @PostMapping("/calificaciones")

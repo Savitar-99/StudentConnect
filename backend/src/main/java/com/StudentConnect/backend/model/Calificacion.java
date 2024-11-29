@@ -3,16 +3,23 @@ package com.StudentConnect.backend.model;
 public class Calificacion {
 
     private int id;              // ID de la calificación
-    private int estudianteId;    // ID del estudiante (referencia)
-    private int asignaturaId;    // ID de la asignatura (referencia)
-    private double calificacion; // Valor de la calificación
-    private String comentario;   // Comentario sobre la calificación
-    private boolean aprobado;    // Indica si el estudiante está aprobado (true) o suspendido (false)
+    private int estudianteId;    // ID del estudiante 
+    private int asignaturaId;    // ID de la asignatura 
+    private double calificacion; // valor de la calificación
+    private String comentario;   // comentario sobre la calificación
+    private boolean aprobado;    // Indica si el estudiante está aprobado 
 
-    // Constructor sin parámetros
-    public Calificacion() {}
+    
+    // consteuctores
+    public Calificacion() {
+        id = -1;
+        estudianteId = -1;
+        asignaturaId = -1;
+        calificacion = -1.00;
+        comentario = "default";
+        aprobado = false;
+    }
 
-    // Constructor con parámetros
     public Calificacion(int id, int estudianteId, int asignaturaId, double calificacion, String comentario) {
         this.id = id;
         this.estudianteId = estudianteId;
@@ -22,53 +29,43 @@ public class Calificacion {
         this.aprobado = calcularAprobado(); // Determina automáticamente si está aprobado
     }
 
-    // Getters y Setters
+    // getters y Setters
     public int getId() {
         return id;
     }
-
     public void setId(int id) {
         this.id = id;
     }
-
     public int getEstudianteId() {
         return estudianteId;
     }
-
     public void setEstudianteId(int estudianteId) {
         this.estudianteId = estudianteId;
     }
-
     public int getAsignaturaId() {
         return asignaturaId;
     }
-
     public void setAsignaturaId(int asignaturaId) {
         this.asignaturaId = asignaturaId;
     }
-
     public double getCalificacion() {
         return calificacion;
     }
-
     public void setCalificacion(double calificacion) {
         this.calificacion = calificacion;
         this.aprobado = calcularAprobado(); // Actualiza el estado de aprobado
     }
-
     public String getComentario() {
         return comentario;
     }
-
     public void setComentario(String comentario) {
         this.comentario = comentario;
     }
-
     public boolean isAprobado() {
         return aprobado;
     }
 
-    // Método privado para calcular si la calificación es aprobatoria
+    // aprobado > = 5
     private boolean calcularAprobado() {
         return this.calificacion >= 5.0;
     }

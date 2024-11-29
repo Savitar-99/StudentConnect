@@ -3,12 +3,12 @@ package com.StudentConnect.backend.model;
 public class Asistencia {
 
     private int id;
-    private int estudianteId;   // ID del estudiante (referencia)
-    private int asignaturaId;   // ID de la asignatura (referencia)
+    private int estudianteId;   // ID del estudiante 
+    private int asignaturaId;   // ID de la asignatura 
     private String fecha;       // Fecha de la asistencia
     private String estado;      // Estado: "presente", "ausente", etc.
 
-    // Constructor
+    // constructor
     public Asistencia() {}
 
     public Asistencia(int id, int estudianteId, int asignaturaId, String fecha, String estado) {
@@ -19,7 +19,7 @@ public class Asistencia {
         this.estado = estado;
     }
 
-    // Getters y Setters
+    // getters y Setters
     public int getId() {
         return id;
     }
@@ -60,7 +60,6 @@ public class Asistencia {
         this.estado = estado;
     }
 
-    // Método toString (para facilitar la depuración)
     @Override
     public String toString() {
         return "Asistencia{id=" + id + ", estudianteId=" + estudianteId + ", asignaturaId=" + asignaturaId + ", fecha='" + fecha + "', estado='" + estado + "'}";

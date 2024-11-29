@@ -4,10 +4,10 @@ public class Asignatura {
 
     private int id;
     private String nombre;
-    private int profesorId;  // ID del profesor (referencia)
-    private int centroId;    // ID del centro (referencia)
+    private int profesorId;  // ID del profesor 
+    private int centroId;    // ID del centro 
 
-    // Constructor
+    // constructor
     public Asignatura() {}
 
     public Asignatura(int id, String nombre, int profesorId, int centroId) {
@@ -17,7 +17,7 @@ public class Asignatura {
         this.centroId = centroId;
     }
 
-    // Getters y Setters
+    // getters y Setters
     public int getId() {
         return id;
     }
@@ -50,7 +50,7 @@ public class Asignatura {
         this.centroId = centroId;
     }
 
-    // Método toString (para facilitar la depuración)
+
     @Override
     public String toString() {
         return "Asignatura{id=" + id + ", nombre='" + nombre + "', profesorId=" + profesorId + ", centroId=" + centroId + '}';

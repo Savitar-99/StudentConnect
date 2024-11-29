@@ -7,9 +7,11 @@ public class Centro {
 
     // constructor vacio
     public Centro() {
+        id = -1;
+        nombre = "default";
+        direccion = "default";
     }
 
-    // constructor
     public Centro(int id, String nombre, String direccion) {
         this.id = id;
         this.nombre = nombre;

@@ -20,6 +20,11 @@ public class AppController {
         return appService.getUsuarios();
     }
 
+    @GetMapping("/usuarios/{id}")
+    public Usuario getUsuarioById(@PathVariable int id) {
+        return appService.getUsuarioById(id);
+    }
+
     @PostMapping("/usuarios")
     public void createUsuario(@RequestBody Usuario usuario) {
         appService.saveUsuario(usuario);
@@ -35,6 +40,11 @@ public class AppController {
     @GetMapping("/centros")
     public List<Centro> getAllCentros() {
         return appService.getCentros();
+    }
+
+    @GetMapping("/centros/{id}")
+    public Centro getCentroById(@PathVariable int id) {
+        return appService.getCentroById(id);
     }
 
     @PostMapping("/centros")
@@ -54,6 +64,11 @@ public class AppController {
         return appService.getAsignaturas();
     }
 
+    @GetMapping("/asignaturas/{id}")
+    public Asignatura getAsignaturaById(@PathVariable int id) {
+        return appService.getAsignaturaById(id);
+    }
+
     @PostMapping("/asignaturas")
     public void createAsignatura(@RequestBody Asignatura asignatura) {
         appService.saveAsignatura(asignatura);
@@ -71,6 +86,11 @@ public class AppController {
         return appService.getAsistencias();
     }
 
+    @GetMapping("/asistencias/{id}")
+    public Asistencia getAsistenciaById(@PathVariable int id) {
+        return appService.getAsistenciaById(id);
+    }
+
     @PostMapping("/asistencias")
     public void createAsistencia(@RequestBody Asistencia asistencia) {
         appService.saveAsistencia(asistencia);
@@ -86,6 +106,11 @@ public class AppController {
     @GetMapping("/calificaciones")
     public List<Calificacion> getAllCalificaciones() {
         return appService.getCalificaciones();
+    }
+
+    @GetMapping("/calificaciones/{id}")
+    public Calificacion getCalificacionById(@PathVariable int id) {
+        return appService.getCalificacionById(id);
     }
 
     @PostMapping("/calificaciones")

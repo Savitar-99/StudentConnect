@@ -8,7 +8,12 @@ public class Asignatura {
     private int centroId;    // ID del centro 
 
     // constructor
-    public Asignatura() {}
+    public Asignatura() {
+        id = -1;
+        nombre = "default";
+        profesorId = -1;
+        centroId = -1;
+    }
 
     public Asignatura(int id, String nombre, int profesorId, int centroId) {
         this.id = id;

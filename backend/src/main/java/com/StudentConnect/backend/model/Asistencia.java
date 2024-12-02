@@ -9,7 +9,13 @@ public class Asistencia {
     private String estado;      // Estado: "presente", "ausente", etc.
 
     // constructor
-    public Asistencia() {}
+    public Asistencia() {
+        id = -1;
+        estudianteId = -1;
+        asignaturaId = -1;
+        fecha = "default";
+        estado = "default";
+    }
 
     public Asistencia(int id, int estudianteId, int asignaturaId, String fecha, String estado) {
         this.id = id;

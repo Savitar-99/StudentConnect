@@ -9,6 +9,7 @@ import java.io.*;
 import java.util.ArrayList;
 import java.util.List;
 
+
 @Service
 public class AppService {
 
@@ -32,6 +33,14 @@ public class AppService {
         }
         return usuarios;
     }
+
+    public Usuario getUsuarioById(int id) {
+        return getUsuarios().stream()
+                             .filter(usuario -> usuario.getId() == id)
+                             .findFirst()
+                             .orElse(null); // Devuelve null si no se encuentra el usuario
+    }
+
     public List<Centro> getCentros() {
         List<Centro> centros = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -48,6 +57,14 @@ public class AppService {
         }
         return centros;
     }
+
+    public Centro getCentroById(int id) {
+        return getCentros().stream()
+                           .filter(centro -> centro.getId() == id)
+                           .findFirst()
+                           .orElse(null); // Devuelve null si no se encuentra el centro
+    }
+
     public List<Asignatura> getAsignaturas() {
         List<Asignatura> asignaturas = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -64,6 +81,14 @@ public class AppService {
         }
         return asignaturas;
     }
+
+    public Asignatura getAsignaturaById(int id) {
+        return getAsignaturas().stream()
+                                .filter(asignatura -> asignatura.getId() == id)
+                                .findFirst()
+                                .orElse(null); // Devuelve null si no se encuentra la asignatura
+    }
+
     public List<Asistencia> getAsistencias() {
         List<Asistencia> asistencias = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -80,6 +105,14 @@ public class AppService {
         }
         return asistencias;
     }
+
+    public Asistencia getAsistenciaById(int id) {
+        return getAsistencias().stream()
+                               .filter(asistencia -> asistencia.getId() == id)
+                               .findFirst()
+                               .orElse(null); // Devuelve null si no se encuentra la asistencia
+    }
+
     public List<Calificacion> getCalificaciones() {
         List<Calificacion> calificaciones = new ArrayList<>();
         try (BufferedReader reader = new BufferedReader(new FileReader(FILE_PATH))) {
@@ -97,24 +130,25 @@ public class AppService {
         return calificaciones;
     }
 
+    public Calificacion getCalificacionById(int id) {
+        return getCalificaciones().stream()
+                                  .filter(calificacion -> calificacion.getId() == id)
+                                  .findFirst()
+                                  .orElse(null); // Devuelve null si no se encuentra la calificación
+    }
+
     // SAVE AND ADD
-    // WRITE OBJ TO JSON
     public void saveData(String arrayName, List<?> dataList) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
             JsonNode rootNode = objectMapper.readTree(new File(FILE_PATH));
-    
-            // objetos a json
             JsonNode arrayNode = objectMapper.valueToTree(dataList);
-            
-            //sustituye en el dbjson
             ((ObjectNode) rootNode).set(arrayName, arrayNode);
-            
-            // save doc
             objectMapper.writeValue(writer, rootNode);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public void saveUsuario(Usuario usuario) {
         List<Usuario> usuarios = getUsuarios();
         usuarios.add(usuario);  
@@ -145,26 +179,18 @@ public class AppService {
         saveData("calificaciones", calificaciones);
     }
 
-    
-
     // UPDATE
-    // WRITE OBJ 2 JSON
     public void writeData(String arrayName, List<?> dataList) {
         try (BufferedWriter writer = new BufferedWriter(new FileWriter(FILE_PATH))) {
             JsonNode rootNode = objectMapper.readTree(new File(FILE_PATH));
-
-            // obj 2 json
             JsonNode arrayNode = objectMapper.valueToTree(dataList);
-            
-            // sustituye 
             ((ObjectNode) rootNode).set(arrayName, arrayNode);
-
-            // save update
             objectMapper.writeValue(writer, rootNode);
         } catch (IOException e) {
             e.printStackTrace();
         }
     }
+
     public void updateUsuario(Usuario usuario) {
         List<Usuario> usuarios = getUsuarios();
         writeData("usuarios", usuarios);
@@ -189,6 +215,4 @@ public class AppService {
         List<Calificacion> calificaciones = getCalificaciones();
         writeData("calificaciones", calificaciones);
     }
-
-    
 }

@@ -1,0 +1,75 @@
+{
+    "usuarios": [
+      {
+        "id": 1,
+        "email": "profesor@example.com",
+        "password": "1234",
+        "rol": "profesor"
+      },
+      {
+        "id": 2,
+        "email": "estudiante@example.com",
+        "password": "5678",
+        "rol": "estudiante"
+      }
+    ],
+    "centros": [
+      {
+        "id": 1,
+        "nombre": "Centro Educativo ABC",
+        "direccion": "Calle Ficticia 123, Ciudad X"
+      },
+      {
+        "id": 2,
+        "nombre": "Instituto XYZ",
+        "direccion": "Avenida Real 456, Ciudad Y"
+      }
+    ],
+    "asignaturas": [
+      {
+        "id": 1,
+        "nombre": "Matemáticas",
+        "profesorId": 1,
+        "centroId": 1
+      },
+      {
+        "id": 2,
+        "nombre": "Lengua Española",
+        "profesorId": 1,
+        "centroId": 2
+      }
+    ],
+    "asistencias": [
+      {
+        "id": 1,
+        "estudianteId": 2,
+        "asignaturaId": 1,
+        "fecha": "2024-10-01",
+        "estado": "presente"
+      },
+      {
+        "id": 2,
+        "estudianteId": 2,
+        "asignaturaId": 2,
+        "fecha": "2024-10-01",
+        "estado": "ausente"
+      }
+    ],
+    "calificaciones": [
+      {
+        "id": 1,
+        "estudianteId": 2,
+        "asignaturaId": 1,
+        "calificacion": 8.5,
+        "comentario": "Buen desempeño en clase"
+      },
+      {
+        "id": 2,
+        "estudianteId": 2,
+        "asignaturaId": 2,
+        "calificacion": 7.0,
+        "comentario": "Necesita mejorar en la comprensión lectora"
+      }
+    ]
+  }
+  

@@ -1,7 +1,7 @@
 package com.StudentConnect.backend.controller;
 
 import com.StudentConnect.backend.model.*;
-import com.StudentConnect.backend.service.AppService;
+import com.StudentConnect.backend.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
@@ -12,115 +12,97 @@ import java.util.List;
 public class AppController {
 
     @Autowired
-    private AppService appService;
+    private UsuarioService usuarioService;
+    
+    @Autowired
+    private CentroService centroService;
+    
+    @Autowired
+    private AsignaturaService asignaturaService;
+    
+    @Autowired
+    private AsistenciaService asistenciaService;
+    
+    @Autowired
+    private CalificacionService calificacionService;
 
-    // usuarios
+    // Métodos para Usuarios
     @GetMapping("/usuarios")
     public List<Usuario> getAllUsuarios() {
-        return appService.getUsuarios();
-    }
-
-    @GetMapping("/usuarios/{id}")
-    public Usuario getUsuarioById(@PathVariable int id) {
-        return appService.getUsuarioById(id);
+        return usuarioService.getAllUsuarios();
     }
 
     @PostMapping("/usuarios")
-    public void createUsuario(@RequestBody Usuario usuario) {
-        appService.saveUsuario(usuario);
+    public void addUsuario(@RequestBody Usuario usuario) {
+        usuarioService.saveUsuario(usuario);
     }
 
-    @PutMapping("/usuarios/{id}")
-    public void updateUsuario(@PathVariable int id, @RequestBody Usuario usuario) {
-        usuario.setId(id);
-        appService.updateUsuario(usuario);
+    @PutMapping("/usuarios")
+    public void updateUsuario(@RequestBody Usuario usuario) {
+        usuarioService.updateUsuario(usuario);
     }
 
-    // centros
+    // Métodos para Centros
     @GetMapping("/centros")
     public List<Centro> getAllCentros() {
-        return appService.getCentros();
-    }
-
-    @GetMapping("/centros/{id}")
-    public Centro getCentroById(@PathVariable int id) {
-        return appService.getCentroById(id);
+        return centroService.getAllCentros();
     }
 
     @PostMapping("/centros")
-    public void createCentro(@RequestBody Centro centro) {
-        appService.saveCentro(centro);
+    public void addCentro(@RequestBody Centro centro) {
+        centroService.saveCentro(centro);
     }
 
-    @PutMapping("/centros/{id}")
-    public void updateCentro(@PathVariable int id, @RequestBody Centro centro) {
-        centro.setId(id);
-        appService.updateCentro(centro);
+    @PutMapping("/centros")
+    public void updateCentro(@RequestBody Centro centro) {
+        centroService.updateCentro(centro);
     }
 
-    // asignaturas
+    // Métodos para Asignaturas
     @GetMapping("/asignaturas")
     public List<Asignatura> getAllAsignaturas() {
-        return appService.getAsignaturas();
-    }
-
-    @GetMapping("/asignaturas/{id}")
-    public Asignatura getAsignaturaById(@PathVariable int id) {
-        return appService.getAsignaturaById(id);
+        return asignaturaService.getAllAsignaturas();
     }
 
     @PostMapping("/asignaturas")
-    public void createAsignatura(@RequestBody Asignatura asignatura) {
-        appService.saveAsignatura(asignatura);
+    public void addAsignatura(@RequestBody Asignatura asignatura) {
+        asignaturaService.saveAsignatura(asignatura);
     }
 
-    @PutMapping("/asignaturas/{id}")
-    public void updateAsignatura(@PathVariable int id, @RequestBody Asignatura asignatura) {
-        asignatura.setId(id);
-        appService.updateAsignatura(asignatura);
+    @PutMapping("/asignaturas")
+    public void updateAsignatura(@RequestBody Asignatura asignatura) {
+        asignaturaService.updateAsignatura(asignatura);
     }
 
-    // asistencias
+    // Métodos para Asistencias
     @GetMapping("/asistencias")
     public List<Asistencia> getAllAsistencias() {
-        return appService.getAsistencias();
-    }
-
-    @GetMapping("/asistencias/{id}")
-    public Asistencia getAsistenciaById(@PathVariable int id) {
-        return appService.getAsistenciaById(id);
+        return asistenciaService.getAllAsistencias();
     }
 
     @PostMapping("/asistencias")
-    public void createAsistencia(@RequestBody Asistencia asistencia) {
-        appService.saveAsistencia(asistencia);
+    public void addAsistencia(@RequestBody Asistencia asistencia) {
+        asistenciaService.saveAsistencia(asistencia);
     }
 
-    @PutMapping("/asistencias/{id}")
-    public void updateAsistencia(@PathVariable int id, @RequestBody Asistencia asistencia) {
-        asistencia.setId(id);
-        appService.updateAsistencia(asistencia);
+    @PutMapping("/asistencias")
+    public void updateAsistencia(@RequestBody Asistencia asistencia) {
+        asistenciaService.updateAsistencia(asistencia);
     }
 
-    // calificaciones
+    // Métodos para Calificaciones
     @GetMapping("/calificaciones")
     public List<Calificacion> getAllCalificaciones() {
-        return appService.getCalificaciones();
-    }
-
-    @GetMapping("/calificaciones/{id}")
-    public Calificacion getCalificacionById(@PathVariable int id) {
-        return appService.getCalificacionById(id);
+        return calificacionService.getAllCalificaciones();
     }
 
     @PostMapping("/calificaciones")
-    public void createCalificacion(@RequestBody Calificacion calificacion) {
-        appService.saveCalificacion(calificacion);
+    public void addCalificacion(@RequestBody Calificacion calificacion) {
+        calificacionService.saveCalificacion(calificacion);
     }
 
-    @PutMapping("/calificaciones/{id}")
-    public void updateCalificacion(@PathVariable int id, @RequestBody Calificacion calificacion) {
-        calificacion.setId(id);
-        appService.updateCalificacion(calificacion);
+    @PutMapping("/calificaciones")
+    public void updateCalificacion(@RequestBody Calificacion calificacion) {
+        calificacionService.updateCalificacion(calificacion);
     }
 }
